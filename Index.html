@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>
+      Dustin Covan's Fine Art, Illustrations, Games, Books, and More...
+    </title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	  <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link href="css/mainStyle.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="css/bootstrap-image-gallery.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/jquery.scrollintoview.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      
+      $(document).ready(function() 
+      { 
+
+        var buttons = ['#fineArtButton', '#digitalIllustrationButton', '#gamesButton', '#pictureBooksButton', '#theAndButton', '#blogButton', '#aboutButton', '#contactButton'];
+        var sections = ['#fineArt', '#digitalIllustration', '#games', '#pictureBooks', '#theAnd', '#blog', '#about', '#contact'];
+
+        for (var x=0; x < sections.length; x++)
+        {
+          $(sections[x]).hide();
+        }
+      
+          $('.bigButton').hover(function(){
+            $(this).css({'opacity': '0.9', 'border-color': '#00FFFF'});
+          }, function(){
+            $(this).css({'opacity': '1.0', 'border-color': '#424242'});
+          });
+
+        function slideDownAndUp(section){
+
+          if ($(section).is(':hidden'))
+          {
+            $(section).slideDown(500).focus();
+
+            setTimeout(function(){
+
+                $(section).scrollintoview();
+
+            }, 500);
+          }
+          else
+          {
+            $(section).slideUp(500);
+          }
+        } // end slideDownAndUp
+
+        $('.button').click(function(event){
+
+          event.preventDefault();
+
+          if (this === fineArtButton)
+          {
+            slideDownAndUp('#fineArt');
+          }
+          else if (this === digitalIllustrationButton)
+          {
+            slideDownAndUp('#digitalIllustration');
+          }
+          else if (this === gamesButton)
+          {
+            slideDownAndUp('#games');
+          }
+          else if (this === pictureBooksButton)
+          {
+            slideDownAndUp('#pictureBooks');
+          }
+          else if (this === theAndButton)
+          {
+            slideDownAndUp('#theAnd');
+          }
+          else if (this === blogButton)
+          {
+            slideDownAndUp('#blog');
+          }
+          else if (this === aboutButton)
+          {
+            slideDownAndUp('#about');
+          }
+          else if (this === contactButton || this === contactFooterLink || this === aboutContactLink)
+          {
+            slideDownAndUp('#contact');
+          }
+          else
+          {
+            alert("These Big Buttons Don't Work!");
+          }
+        }); // end click
+
+      $.getScript('js/fineArt.js');
+      $.getScript('js/theAnd.js');
+      $.getScript('js/digitalIllustration.js');
+      $.getScript('js/games.js');
+      $.getScript('js/pictureBooks.js');
+      $.getScript('js/about.js');
+
+      }); // end (document).ready 
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="mainbody">
+        <br>
+          <img class="displayed img-responsive" src="img/DustinCovanHeader.png" alt="Dustin Covan Header Image">
+        <br>
+<!-- start big buttons -->
+
+<!-- Fine Art -->
+        <a href="#" id="fineArtButton" class="button"><img class="displayedBorder img-responsive bigButton" src="img/Fine-Art-Button.png" alt="Fine Art Button"></a>
+        <br>
+
+        <!-- content added through fineArt.js --> 
+
+        <div tabindex="1" id="fineArt" class="section"> <!-- start Fine Art section -->
+        
+        </div> <!-- end Fine Art section -->
+
+<!-- Digital Illustration -->
+        <a href="#" id="digitalIllustrationButton" class="button"><img class="displayedBorder img-responsive bigButton" src="img/Digital-Illustration-Button.png" alt="Digital Illustration Button"></a>
+        <br>
+        <div tabindex="2" id="digitalIllustration" class="section"> <!-- start Digital Illustration section -->
+        <!-- content added through digitalIllustration.js -->  
+        </div> <!-- end Digital Illustration section -->
+
+<!-- Games -->
+        <a href="#" id="gamesButton" class="button"><img class="displayedBorder img-responsive bigButton" src="img/Games-Button.png" alt="Games Button"></a>
+        <br>
+        <div tabindex="3" id="games" class="section"> <!-- start Games section -->
+        <!-- content added through games.js --> 
+        </div> <!-- end Games section -->
+
+<!-- Picture Books -->
+        <a href="#" id="pictureBooksButton" class="button"><img class="displayedBorder img-responsive bigButton" src="img/Picture-Book-Button.png" alt="Picture Books Button"></a>
+        <br>
+        <div tabindex="4" id="pictureBooks" class="section"> <!-- start Picture Books section -->
+        <!-- content added through pictureBooks.js -->  
+        </div> <!-- end Picture Books section -->
+
+<!-- The And -->
+        <a href="#" id="theAndButton" class="button"><img class="displayedBorder img-responsive bigButton" src="img/And-Button.png" alt="The And Button"></a>
+        <br>
+        <div tabindex="5" id="theAnd" class="section"> <!-- start The And section -->
+          <div id="theAndRow1" class="row">
+          <br>
+            <div class="col-sm-12">
+              <div>
+                <input id="theAndHeadButton" type="image" src="img/AndTheButton.png" alt="clickyclickyclicky" onclick="cycleThrough()" title="clickyclickyclicky">
+              </div>
+              <br>
+            </div>
+          <br>
+            <div class="col-sm-12">
+              <div id="theAndWords">
+                <p id="piece"></p>
+              </div>
+            </div>
+          </div> <!-- end theAndRow1 -->
+          <br>
+        </div> <!-- end The And section -->
+
+<!-- Blog -->
+  			<a href="#" id="blogButton" class="button"><img class="displayedBorder img-responsive bigButton" src="img/Blog-Button.png" alt="Blog Button"></a>
+        <br>
+        <div tabindex="5" id="blog" class="section"> <!-- start Blog section -->
+          <div id="blogRow1" class="row">
+            <div class="col-sm-12">
+              <h4 class="foot"><a href="http://dustincovan.blogspot.com" class="neonBlue" target="_blank">dustincovan.blogspot.com</a></h4>
+              <br>
+            </div>
+          </div>
+        </div> <!-- end Blog section -->
+
+<!-- About -->
+        <a href="#" id="aboutButton" class="button"><img class="displayedBorder img-responsive bigButton" src="img/About-Button.png" alt="About Button"></a>
+        <br>
+        <div tabindex="6" id="about" class="section"> <!-- start About section -->
+        <!-- content added through about.js -->   
+        </div> <!-- end About section -->
+
+<!-- Contact -->
+        <!-- start Contact section -->
+        <a href="#" id="contactButton" class="button"><img class="displayedBorder img-responsive bigButton" src="img/Contact-Button.png" alt="Contact Button"></a>
+  			<div tabindex="7" id="contact" class="section">
+          <div id="contactRow1" class="row">
+            <div id="contactFormColumn" class="col-sm-8 col-sm-offset-2">
+              <script type="text/javascript" src="http://form.jotform.us/jsform/52188089954167"></script> <!-- jotform contact form -->
+            </div>
+          </div> 
+        </div> <!-- end Contact section -->
+
+<!-- end big buttons -->
+        
+        <h6 id="contactFooter" class="pink foot">website designed and developed by <a href="#" id="contactFooterLink" class="neonBlue contactFootClass button">Dustin Covan</a></h6>
+        
+        <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+          <div id='blueimp-gallery' class='blueimp-gallery' data-use-bootstrap-modal="false">
+              <!-- The container for the modal slides -->
+              <div class='slides'></div>
+              <!-- Controls for the borderless lightbox -->
+              <h3 class='title'></h3>
+              <a class='prev'>‹</a>
+              <a class='next'>›</a>
+              <a class='close'>×</a>
+              <a class='play-pause'></a>
+              <ol class='indicator'></ol>
+              <!-- The modal dialog, which will be used to wrap the lightbox content -->
+              <div class='modal fade'>
+                  <div class='modal-dialog modal-lg'>
+                      <div class='modal-content'>
+                          <div class='modal-header'>
+                              <button type='button' class='close' aria-hidden='true'>&times;</button>
+                              <h4 class='modal-title'></h4>
+                          </div>
+                          <div class='modal-body next'></div>
+                          <div class='modal-footer'>
+                              <button type='button' class='btn btn-default pull-left prev'>
+                                  <i class='glyphicon glyphicon-chevron-left'></i>
+                                  Previous
+                              </button>
+                              <button type='button' class='btn btn-primary next'>
+                                  Next
+                                  <i class='glyphicon glyphicon-chevron-right'></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div> <!-- end Lightbox -->
+
+      </div><!-- End mainbody -->
+    </div> <!-- End container -->
+    <br>
+
+    <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="js/bootstrap-image-gallery.min.js"></script>
+
+  </body>
+</html>
